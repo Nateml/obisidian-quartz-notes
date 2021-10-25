@@ -1,3 +1,14 @@
+{{$content := replaceRE `a href="\.\.\/(.+%20.+)+"` `$1` .Content}}
+{{$content = replace $content "%20" "-"}}
+{{$content := replaceRE `a href="\.\.\/(.+\-&\-.+)+"` `$1` $content}}
+{{$content = replace $content "&" ""}}
+{{$content = replace $content "-amp;-" "-"}}
+{{$content = replace $content "amp;" "&"}}
+{{$content = replace $content "%28" ""}}
+{{$content = replace $content "%29" ""}}
+{{$content = replace $content "ndash;" "-"}}
+{{$content = replace $content "lt;" "<"}}
+{{$content = $content | safeHTML }}
 <!DOCTYPE html>
 <html lang="en">
 {{ partial "head.html" . }}
@@ -19,7 +30,7 @@
             {{ .TableOfContents }}
         </aside>
         {{end}}
-        {{- .Content -}}
+        {{- $content -}}
     </article>
     {{partial "footer.html" .}}
 </div>

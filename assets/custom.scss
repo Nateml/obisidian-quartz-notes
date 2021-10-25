@@ -11,6 +11,13 @@
   --outlinegray: #dadada;
 }
 
+code.has-jax {
+    -webkit-font-smoothing: antialiased;
+    background: inherit !important;
+    border: none !important;
+    font-size: 100%;
+}
+
 [saved-theme="dark"] {
   --light: #1e1e21 !important;
   --dark: #fbfffe !important;

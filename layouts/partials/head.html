@@ -23,5 +23,7 @@
       {{.Content | safeJS }}
     </script>
     {{- end -}}
+    <!-- {{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }} -->
+    {{ partial "mathjax_support.html" . }}
 </head>
 {{ template "_internal/google_analytics.html" . }}
